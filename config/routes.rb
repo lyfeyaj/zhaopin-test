@@ -1,9 +1,19 @@
 ZhaopinTest::Application.routes.draw do
+  root 'welcomes#index'
+  
+  get "welcomes/index"
+  
+  devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  
+  delete 'sign_out' => 'welcomes#sign_out_user'
+  
+  post 'sign_up' => 'welcomes#sign_out_and_sign_up'
+  
+  post 'sign_in' => 'welcomes#sign_out_and_sign_in'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

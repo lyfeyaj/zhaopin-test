@@ -1,0 +1,19 @@
+<% if !user_signed_in? %>
+你好，陌生人！你没有登录，或者你还没有注册，但是你已经浏览这个页面 <%= current_user.uptime %> 分钟了。
+<br>
+<br />
+<%= link_to "登陆", sign_in_path, method: :post %>
+<br />
+或者
+<br />
+<%= link_to "注册", sign_up_path, method: :post %><br />
+<br>
+<% else %>
+<%= current_user.username %> 谢谢你登录了我们网站！你已经登录了 <%= current_user.sign_in_count %> 次了，总共登录时间是 <%= current_user.uptime %> 分钟了。
+<br>
+<br>
+<%= link_to '注销', sign_out_path, data: {confirm: '确定离开?'}, method: :delete %>
+<% end %>
+<br>
+<br>
+现在总共有 <%= all_online_users %> 个注册用户在查看这个网站，有 <%= all_online_guests %> 个陌生人在查看这个网站
