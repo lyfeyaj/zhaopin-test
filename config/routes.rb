@@ -1,6 +1,8 @@
 ZhaopinTest::Application.routes.draw do
   root 'welcomes#index'
   
+  resources :users, only: :index
+  
   get "welcomes/index"
   
   devise_for :users

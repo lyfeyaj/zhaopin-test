@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   
-  def all_online_users
+  def all_online_registerred_users
     User.where('username is not ? and online = ?', 'guest', true).count
   end
   
@@ -31,6 +31,6 @@ class ApplicationController < ActionController::Base
     super(resource_or_scope)
   end
   
-  helper_method :all_online_users, :all_online_guests, :user_signed_in?
+  helper_method :all_online_registerred_users, :all_online_guests, :user_signed_in?
   
 end
